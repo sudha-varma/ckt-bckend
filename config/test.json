@@ -1,0 +1,29 @@
+{
+  "env": "test",
+  "port": 4040,
+  "bodyLimit": "5mb",
+  "corsHeaders": ["Origin, X-Requested-With, Content-Type, Accept"],
+  "corsOrigin": ["*", "http://139.59.88.223", "http://139.59.47.77", "http://dev.com:3000"],
+  "database": {
+    "host": "mongo",
+    "port": "27017",
+    "user": "root",
+    "pass": "root",
+    "dbname": "cricketTech-test",
+    "mongooseDebug": true
+  },
+  "jwt": {
+    "privateKey" : "someDevKey",
+    "tokenIssuer" : "Expert Opinion",
+    "tokenExpiry" : "60d"
+  },
+  "hashKey": "SomeRandomKey",
+  "domainPrefix": "http://www.crickettech.com",
+  "emailFrom" :"info@cartoonmango.com",
+  "amazonAWS":{
+    "accessKeyId":"",
+    "secretAccessKey":"",
+    "bucketName":""
+  },
+  "autoBackup": false
+}

@@ -1,0 +1,13 @@
+{
+ "presets": [
+    ["env", {
+      "targets": {
+        "node": "8.11.4"
+      },
+      "module": "commonjs",
+      "debug": false
+    }],"es2015"
+  ],
+  "plugins": ["transform-object-rest-spread"],
+  "sourceMaps": true
+}

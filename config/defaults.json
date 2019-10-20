@@ -1,0 +1,9 @@
+{
+  "defaults": {
+    "imageResolutions": {
+      "thumbnail": { "height": 88, "width": 88 },
+      "featureThumbnail": { "height": 187, "width": 337 },
+      "image": { "height": 360, "width": 200 }
+    }
+  }
+}

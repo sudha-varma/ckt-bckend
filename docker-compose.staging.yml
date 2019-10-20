@@ -1,0 +1,46 @@
+version: '2'
+
+services:
+  app:
+    # build:
+    #   dockerfile: Dockerfile-prod
+    #   context: .
+    image: "139.59.84.83:5000/article:4.0.0"
+    volumes:
+      - ~/uploads/hdfs/:/app/uploads/hdfs
+      - ~/uploads/hdfs-images/:/app/uploads/hdfs-images
+
+    # Set environment variables from this file
+    # env_file:
+      # - .env
+
+    # Overwrite any env var defined in .env file (if required)
+    environment:
+      - NODE_ENV=test
+
+    # Link to containers in another service.
+    links:
+      - mongo
+      # - redis
+    command: pm2 start --name "cricketTechArticle" --no-daemon server.js
+
+    # Expose ports [HOST:CONTAINER}
+    ports:
+      - "4040:4040"
+  mongo:
+    image: "mongo:3.4"
+    ports:
+      - "27017:27017"
+    container_name: mongo
+    volumes:
+      - ~/data/:/data/db
+      - ~/dump/:/dump
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    command: mongod --auth
+  # redis:
+  #   image: redis:alpine
+  #   container_name: redis
+  #   ports:
+  #     - "6379:6379"
